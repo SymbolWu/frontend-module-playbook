@@ -38,6 +38,12 @@
 - 每次规则有明显变化时，补一条 release note 或 changelog
 - 不把试验性规则直接当成稳定规范发布
 
+### 6. 提交和发布规范
+
+- 确认仓库提交信息遵循 `docs/commit-workflow.md`
+- 确认首个 release 文案与 `docs/release-template.md` 保持一致或同方向
+- 如果本次调整改变了旧结构或旧路径，确认提交类型是否应使用 `BREAKING:`
+
 ## 发布动作建议顺序
 
 1. 先在你自己的 1 到 2 个项目中复制接入，验证能否稳定使用。
