@@ -4,6 +4,8 @@
 
 安装方式：把 `skills/frontend-module-playbook/` 复制到目标仓库的兼容 skill 目录中，或在公开仓库场景下按你的 skills 工具链使用仓库源地址安装。
 
+仓库地址：`git@github.com:SymbolWu/frontend-module-playbook.git`
+
 它适合做两类事情：
 
 - 作为公开 skill 仓库发布和分发
@@ -68,11 +70,10 @@
 
 ## 安装提示
 
-如果你后续把这个仓库推到 GitHub，可在首页补充真实仓库地址后的安装示例：
+当前仓库可直接使用以下安装示例：
 
 ```bash
-# Replace <owner>/<repo> with the real GitHub repository
-npx skills add https://github.com/<owner>/<repo> --skill frontend-module-playbook
+npx skills add https://github.com/SymbolWu/frontend-module-playbook --skill frontend-module-playbook
 ```
 
 如果暂时不走 CLI 安装，直接复制 `skills/frontend-module-playbook/` 目录仍然是最稳妥的接入方式。
