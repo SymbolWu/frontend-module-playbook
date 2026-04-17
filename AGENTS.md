@@ -12,7 +12,6 @@
 - 如果你要做代码评审，优先看 `skills/frontend-module-playbook/references/review-workflow.md`。
 - 如果你要整理提交，优先看 `skills/frontend-module-playbook/references/commit-workflow.md`。
 - 如果你要整理实现说明、确认清单或接口文档，优先看 `skills/frontend-module-playbook/references/doc-workflow.md`。
-- 如果你要做前后端联调或链路排查，优先看 `skills/frontend-module-playbook/references/integration-debug-workflow.md`。
 
 ## 使用边界
 
@@ -23,5 +22,5 @@
 ## 使用原则
 
 - 优先把这里当成“规则母本”，再按目标项目做适配，而不是原样硬拷贝到所有仓库。
-- 新增规则文档时，优先判断它属于模块架构、实现流程、注释、评审、提交、文档整理还是联调排查中的哪一类，并放入 `skills/frontend-module-playbook/references/`。
+- 新增规则文档时，优先判断它属于模块架构、实现流程、注释、评审、提交或文档整理中的哪一类，并放入 `skills/frontend-module-playbook/references/`。
 - `AGENTS.md` 只保留入口说明，不重复展开各份文档细则。

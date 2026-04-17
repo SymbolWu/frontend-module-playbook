@@ -1,6 +1,6 @@
 # Frontend Module Playbook
 
-一套面向 React / TypeScript 页面模块的可迁移协作规范，已按 Agent Skill 形式组织，可用于模块设计、实现、评审、注释、文档整理和联调排查。
+一套面向 React / TypeScript 页面模块的可迁移协作规范，已按 Agent Skill 形式组织，可用于模块设计、实现、评审、注释、文档整理和代码组织约束沉淀。
 
 安装方式：把 `skills/frontend-module-playbook/` 复制到目标仓库的兼容 skill 目录中，或在公开仓库场景下按你的 skills 工具链使用仓库源地址安装。
 
@@ -20,7 +20,7 @@
 - 页面组件、view-model、transformer、service、repository 之间的职责边界
 - AI 或开发者实际改代码时的落点选择和最小改动原则
 - 注释、评审、提交、文档整理的统一工作方式
-- 前后端联调时更稳定的排查顺序
+- 文件组织、长文件治理和代码拆分的实现约束
 
 ## 适用场景
 
@@ -54,7 +54,6 @@
 - `skills/frontend-module-playbook/references/review-workflow.md`
 - `skills/frontend-module-playbook/references/commit-workflow.md`
 - `skills/frontend-module-playbook/references/doc-workflow.md`
-- `skills/frontend-module-playbook/references/integration-debug-workflow.md`
 
 ### 3. 把它接入目标项目
 
@@ -86,14 +85,14 @@ npx skills add https://github.com/SymbolWu/frontend-module-playbook --skill fron
 - 判断某段逻辑应该落在组件、view-model、transformer 还是 service
 - 评审一个模块改动是否存在流程回归、状态来源冲突或降级路径缺失
 - 给存量页面补注释、实现说明或技术确认清单
-- 排查“上传成功但任务不推进”“结果页打不开”这类联调链路问题
+- 判断页面辅助逻辑应拆到 helpers、components 还是继续留在入口文件
 
 典型调用示例：
 
 - `/frontend-module-playbook 为一个新的报表页设计模块目录和职责边界`
 - `/frontend-module-playbook 这个页面的导出逻辑应该落在组件还是 view-model`
 - `/frontend-module-playbook review 这个 React 模块改动有没有流程回归风险`
-- `/frontend-module-playbook 排查上传成功但任务状态不推进的链路`
+- `/frontend-module-playbook 这个页面的辅助逻辑应该拆到 helpers 还是继续留在主 hook`
 
 ## 仓库结构
 
@@ -103,9 +102,11 @@ frontend-module-playbook/
 	README.md
 	CHANGELOG.md
 	docs/
-		skill-distribution.md
-		release-checklist.md
+		commit-workflow.md
 		import-template.md
+		release-checklist.md
+		release-template.md
+		skill-distribution.md
 	skills/
 		frontend-module-playbook/
 			SKILL.md

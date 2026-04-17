@@ -1,11 +1,11 @@
 ---
 name: frontend-module-playbook
-description: Design, implement, review, document, and debug React or TypeScript page modules with stable boundaries across page, view-model, transformer, service, and repository layers.
+description: Design, implement, review, document, and organize React or TypeScript page modules with stable boundaries across page, view-model, transformer, service, and repository layers.
 license: Proprietary. See repository README and documentation for usage terms.
 metadata:
   author: wuxinbo
   distribution: public-skill-repo
-  version: "0.1.0"
+  version: "0.1.1"
 ---
 
 # Frontend Module Playbook
@@ -18,13 +18,13 @@ Apply it when you need to:
 - decide the correct landing layer for logic across page, view-model, transformer, service, and repository
 - implement a scoped change without leaking product rules into the wrong layer
 - review a module change for behavior risk, boundary drift, and missing downgrade paths
-- organize comments, docs, commit messages, or integration-debug work around a module
+- organize comments, docs, commit messages, or code-organization work around a module
 
 ## Required Inputs
 
 Gather these facts first when they exist:
 
-- task type: architecture, implementation, comments, review, docs, commit preparation, or integration debugging
+- task type: architecture, implementation, comments, review, docs, or commit preparation
 - current module structure and affected files
 - confirmed product rules, backend constraints, and URL or state assumptions
 - whether the work stays inside one page, one module, or a shared cross-page flow
@@ -40,10 +40,9 @@ If product rules are still unclear, use the smallest safe fallback instead of in
    - For reviews, use [review workflow](references/review-workflow.md).
    - For documentation or clarification output, use [doc workflow](references/doc-workflow.md).
    - For commit preparation, use [commit workflow](references/commit-workflow.md).
-   - For backend-linked debugging, use [integration debug workflow](references/integration-debug-workflow.md).
 
 2. Choose the correct layer before writing code.
-   - Layout and rendering composition belong in page components and style files.
+   - Layout and rendering composition belong in page components and page-local style files or style directories.
    - Page-specific state, submit actions, routing timing, polling, and error handling belong in the view-model.
    - DTO to page-model mapping and display-field derivation belong in transformers.
    - Request adaptation and backend-protocol handling belong in services.
@@ -60,7 +59,6 @@ If product rules are still unclear, use the smallest safe fallback instead of in
    - Review: list findings first, sorted by severity, then open questions.
    - Documentation: separate facts, differences, risks, and open questions.
    - Commit prep: suggest a short commit subject centered on one intent.
-   - Integration debug: isolate the broken stage first, then narrow by request chain.
 
 ## Reference Files
 
@@ -70,7 +68,6 @@ If product rules are still unclear, use the smallest safe fallback instead of in
 - [review workflow](references/review-workflow.md)
 - [doc workflow](references/doc-workflow.md)
 - [commit workflow](references/commit-workflow.md)
-- [integration debug workflow](references/integration-debug-workflow.md)
 
 ## Expected Behavior
 
@@ -83,4 +80,4 @@ If product rules are still unclear, use the smallest safe fallback instead of in
 - `/frontend-module-playbook 为一个新的报表页设计模块目录和职责边界`
 - `/frontend-module-playbook 这个页面的导出逻辑应该落在组件还是 view-model`
 - `/frontend-module-playbook review 这个 React 模块改动有没有流程回归风险`
-- `/frontend-module-playbook 排查上传成功但任务状态不推进的链路`
+- `/frontend-module-playbook 这个页面的辅助逻辑应该拆到 helpers 还是继续留在主 hook`
