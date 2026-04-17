@@ -139,6 +139,6 @@ frontend-module-playbook/
 
 ## 版本
 
-当前版本：`0.1.0`
+当前版本：`0.1.1`
 
-首个版本说明见 `CHANGELOG.md`。
+当前版本说明见 `CHANGELOG.md`。

@@ -2,6 +2,15 @@
 
 All notable changes to this repository will be documented in this file.
 
+## 0.1.1 - 2026-04-17
+
+补充公开仓库真实地址与安装示例的最小修正版。
+
+### Changed
+
+- 在 README 中补充真实 GitHub 仓库地址
+- 在 README 中补充可直接使用的安装命令示例
+
 ## 0.1.0 - 2026-04-17
 
 首个公开整理版本。

@@ -2,33 +2,30 @@
 
 ## 推荐 tag
 
-- `v0.1.0`
+- `v0.1.1`
 
 ## 推荐 release 标题
 
-- `v0.1.0: first public skill release`
+- `v0.1.1：补充真实仓库地址与安装示例`
 
 ## 推荐 release 简述
 
 ```md
-## Summary
+## 概要
 
-First public release of `frontend-module-playbook` as a skill repository.
+补充公开仓库的真实地址与可直接使用的安装示例，使版本内容与当前仓库首页保持一致。
 
-## Included
+## 包含内容
 
-- `skills/frontend-module-playbook/` as the main skill package
-- `references/` as the canonical workflow source
-- public README, release checklist, and import template
+- README 中补充真实 GitHub 仓库地址
+- README 中补充可直接使用的 `npx skills add` 安装示例
 
-## Notes
+## 说明
 
-- workflow docs are now maintained only under `skills/frontend-module-playbook/references/`
-- target projects should copy this skill into `.github/skills/` or another compatible skill directory
+- 本次为最小修正版发布
+- 不涉及 skill 结构、规则正文或目录组织调整
 ```
 
 ## 推荐首批提交文案
 
-- `BREAKING: 将规范正文收敛到 skill references`
-- `DOC: 重写面向公开分发的 README`
-- `RELEASE: 发布 v0.1.0`
+- `RELEASE: 发布 v0.1.1`
