@@ -4,7 +4,7 @@
 
 开源许可：MIT。详见仓库根目录 `LICENSE`。
 
-安装方式：把 `skills/frontend-module-playbook/` 复制到目标仓库的兼容 skill 目录中，或在公开仓库场景下按你的 skills 工具链使用仓库源地址安装。
+安装方式：优先使用 `skills` CLI 安装；如果不走 CLI，再把 `skills/frontend-module-playbook/` 复制到目标仓库的兼容 skill 目录中。
 
 仓库地址：`https://github.com/SymbolWu/frontend-module-playbook`
 
@@ -59,25 +59,43 @@
 
 ### 3. 把它接入目标项目
 
-把 `skills/frontend-module-playbook/` 复制到目标仓库的任一兼容目录：
+推荐优先使用 `skills` CLI 做项目级安装。以 Claude Code 为例：
+
+```bash
+npx -y skills add SymbolWu/frontend-module-playbook --skill frontend-module-playbook --agent claude-code -y
+```
+
+如果你不走 CLI，再把 `skills/frontend-module-playbook/` 复制到目标仓库的任一兼容目录：
 
 - `.github/skills/frontend-module-playbook/`
 - `.agents/skills/frontend-module-playbook/`
 - `.claude/skills/frontend-module-playbook/`
 
-如果你主要使用 GitHub Copilot / VS Code，优先使用 `.github/skills/`。
+如果你是手动复制，且主要使用 GitHub Copilot / VS Code，优先使用 `.github/skills/`。
 
 更完整的接入说明见 `docs/import-template.md`。
 
 ## 安装提示
 
-当前仓库可直接使用以下安装示例：
+当前仓库已经验证过以下安装方式：
 
 ```bash
-npx skills add https://github.com/SymbolWu/frontend-module-playbook --skill frontend-module-playbook
+# 先列出仓库中可安装的 skills
+npx -y skills add SymbolWu/frontend-module-playbook -l
+
+# 全局安装当前 skill
+npx -y skills add https://github.com/SymbolWu/frontend-module-playbook -g --skill frontend-module-playbook -y
+
+# 项目级安装（以 Claude Code 为例）
+npx -y skills add SymbolWu/frontend-module-playbook --skill frontend-module-playbook --agent claude-code -y
 ```
 
-如果暂时不走 CLI 安装，直接复制 `skills/frontend-module-playbook/` 目录仍然是最稳妥的接入方式。
+说明：
+
+- `-l` 只列出可安装的 skill，不实际安装。
+- `-g` 表示安装到用户级 agent skill 目录。
+- `--agent` 可在项目级安装时限定目标工具；上面的例子使用的是 `claude-code`。
+- 如果暂时不走 CLI 安装，直接复制 `skills/frontend-module-playbook/` 目录仍然是稳妥的 fallback 方式。
 
 ## 可以怎么用
 

@@ -6,13 +6,27 @@
 
 ## 存量项目引入
 
-把当前仓库中的 `skills/frontend-module-playbook/` 复制到目标仓库的对应目录中。常见目标位置：
+推荐优先使用 `skills` CLI 做接入，再把手动复制作为 fallback。
+
+已验证的项目级安装示例：
+
+```bash
+npx -y skills add SymbolWu/frontend-module-playbook --skill frontend-module-playbook --agent claude-code -y
+```
+
+如果你需要先确认仓库里有哪些 skill，可先执行：
+
+```bash
+npx -y skills add SymbolWu/frontend-module-playbook -l
+```
+
+如果不走 CLI，再把当前仓库中的 `skills/frontend-module-playbook/` 复制到目标仓库的对应目录中。常见目标位置：
 
 - `.github/skills/frontend-module-playbook/`
 - `.agents/skills/frontend-module-playbook/`
 - `.claude/skills/frontend-module-playbook/`
 
-推荐优先使用 `.github/skills/`，因为 GitHub Copilot 和 VS Code 相关工具链更常见。
+如果是手动复制，且主要面向 GitHub Copilot / VS Code，推荐优先使用 `.github/skills/`。
 
 ## 存量项目接入说明模板
 
@@ -37,6 +51,14 @@ Use it when you need to:
 Start from:
 
 - `.github/skills/frontend-module-playbook/SKILL.md`
+```
+
+如果你主要通过 `skills` CLI 安装，也可以在目标项目文档里直接补一句：
+
+```md
+Install with:
+
+`npx -y skills add SymbolWu/frontend-module-playbook --skill frontend-module-playbook --agent claude-code -y`
 ```
 
 ## 新项目模板引入

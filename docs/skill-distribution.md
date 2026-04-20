@@ -28,13 +28,27 @@
 
 ## 怎么在存量项目中引入
 
-推荐优先使用“从本仓库复制 skill 目录到目标仓库”的方式，因为最直接、最少依赖：
+推荐优先使用 `skills` CLI 做接入，因为现在已经可以稳定识别并安装本仓库中的 skill。
+
+已验证的项目级安装示例：
+
+```bash
+npx -y skills add SymbolWu/frontend-module-playbook --skill frontend-module-playbook --agent claude-code -y
+```
+
+如果需要先列出仓库里可安装的 skill：
+
+```bash
+npx -y skills add SymbolWu/frontend-module-playbook -l
+```
+
+如果不走 CLI，再退回到“从本仓库复制 skill 目录到目标仓库”的方式，因为这仍然最直接、最少依赖：
 
 1. 把 `skills/frontend-module-playbook/` 复制到目标仓库的 `.github/skills/` 目录下。
 2. 视目标工具链，改成 `.agents/skills/` 或 `.claude/skills/` 也可以。
 3. 根据目标仓库事实，微调 `SKILL.md` 和参考文档。
 
-这样做的优点：
+手动复制方式的优点：
 
 - 对现有仓库侵入小
 - 不依赖私有包管理
