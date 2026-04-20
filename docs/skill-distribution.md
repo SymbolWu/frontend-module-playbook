@@ -28,7 +28,12 @@
 
 ## 怎么在存量项目中引入
 
-推荐优先使用 `skills` CLI 做接入，因为现在已经可以稳定识别并安装本仓库中的 skill。
+推荐先按使用目的决定安装方式：
+
+- 如果只是个人本机使用，不希望目标仓库出现新的待提交文件，优先全局安装：`npx -y skills add https://github.com/SymbolWu/frontend-module-playbook -g --skill frontend-module-playbook -y`
+- 如果希望把 skill 当作仓库内协作资产共享给团队，再使用项目级安装。
+
+现在已经可以稳定识别并安装本仓库中的 skill。
 
 先做一个通用检查：
 
@@ -64,11 +69,15 @@ npx -y skills add SymbolWu/frontend-module-playbook --skill frontend-module-play
 补充说明：
 
 - `skills` CLI 的项目级安装目录取决于 agent target 本身。
+- 如果你只是个人本机使用，优先 `-g`，这样不会改动目标仓库工作区。
+- `VS Code` 只是编辑器宿主，不是 `skills` CLI 的 `--agent` 值；只有你实际使用的是 GitHub Copilot，才对应 `github-copilot`。
 - 不指定 `--agent` 时，CLI 会根据当前环境已检测到的 agent 做项目级安装；这通常是多 agent 项目的最通用方式。
 - 如果需要一次指定多个 agent，可以在同一条命令里写多个值，例如 `--agent claude-code github-copilot cursor`。
 - `claude-code` 使用 `.claude/skills/`。
 - `github-copilot`、`cursor`、`codex` 这类 target 在 CLI 下会共享 `.agents/skills/` 一类项目目录。
 - `windsurf` 使用自己的项目目录。
+- 项目级安装会直接改动目标仓库，常见会出现 `.agents/skills/`、`.claude/skills/`、`.windsurf/skills/` 或 `skills-lock.json` 等文件；因此 AI 在提交代码时把这些文件也纳入候选改动是正常现象。
+- 如果这些文件就是团队要共享的 skill 资产，建议单独提交一次初始化接入；如果只是个人本机临时使用，就不要走项目级安装，或者在目标仓库里明确忽略这些文件。
 - 因此，CLI 安装路径和手动复制时的推荐目录不一定完全一致。
 - 对多 agent 项目，优先让 CLI 统一管理，而不是手动维护多份复制目录。
 

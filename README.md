@@ -59,7 +59,12 @@
 
 ### 3. 把它接入目标项目
 
-推荐优先使用 `skills` CLI 做接入。先给一个通用验证方式：
+推荐先按使用目的决定安装方式：
+
+- 如果只是你自己本机使用，不希望目标仓库出现新的待提交文件，优先使用全局安装：`npx -y skills add https://github.com/SymbolWu/frontend-module-playbook -g --skill frontend-module-playbook -y`
+- 如果希望把 skill 作为仓库内协作资产共享给团队，再使用项目级安装。
+
+先给一个通用验证方式：
 
 ```bash
 # 先列出仓库中可安装的 skills
@@ -98,7 +103,8 @@ npx -y skills add SymbolWu/frontend-module-playbook --skill frontend-module-play
 - `.claude/skills/frontend-module-playbook/`
 - `.windsurf/skills/frontend-module-playbook/`
 
-如果你是手动复制，且主要使用 GitHub Copilot / VS Code，优先使用 `.github/skills/`。
+如果你是手动复制，且当前主要使用的是 VS Code 内的 GitHub Copilot，优先使用 `.github/skills/`。
+如果只是“编辑器是 VS Code”，但实际使用的是其他 agent，就不要笼统按 GitHub Copilot 处理。
 
 更完整的接入说明见 `docs/import-template.md`。
 
@@ -136,11 +142,15 @@ npx -y skills add SymbolWu/frontend-module-playbook --skill frontend-module-play
 
 - `-l` 只列出可安装的 skill，不实际安装。
 - `-g` 表示安装到用户级 agent skill 目录。
+- 如果你只是个人本机使用，优先 `-g`，这样不会改动目标仓库工作区。
+- `VS Code` 只是编辑器宿主，不是 `skills` CLI 的 `--agent` 值；只有你实际使用的是 GitHub Copilot，才对应 `github-copilot`。
 - 不指定 `--agent` 时，CLI 会根据当前环境已检测到的 agent 做项目级安装；这通常是多 agent 项目的最通用方式。
 - `--agent` 可在项目级安装时限定目标工具。
 - 如果需要一次指定多个 agent，可以在同一条命令里写多个值，例如 `--agent claude-code github-copilot cursor`。
 - 目前已验证的主流 target name 包括：`claude-code`、`github-copilot`、`cursor`、`codex`、`windsurf`。
 - 对多 agent 项目，`skills` CLI 会尽量复用共享目录；例如 `github-copilot`、`cursor`、`codex` 这类 target 在 CLI 下会共享 `.agents/skills/` 一类项目目录，而像 `claude-code`、`windsurf` 这类工具会由 CLI 补对应目录或链接。
+- 项目级安装会直接改动目标仓库，常见会出现 `.agents/skills/`、`.claude/skills/`、`.windsurf/skills/` 或 `skills-lock.json` 等文件，因此 AI 在执行提交时把这些文件也纳入候选改动是正常现象。
+- 如果这些文件就是你想共享给团队的 skill 资产，建议把它们单独作为一次初始化提交；如果只是你本机临时使用，就不要走项目级安装，或者在目标仓库里明确忽略这些文件。
 - `skills` CLI 的项目级安装目录和手动复制目录不是完全一一对应的；手动复制时仍可按目标工具文档使用各自兼容目录。
 - 如果暂时不走 CLI 安装，直接复制 `skills/frontend-module-playbook/` 目录仍然是稳妥的 fallback 方式。
 
