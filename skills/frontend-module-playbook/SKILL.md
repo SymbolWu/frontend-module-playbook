@@ -1,11 +1,11 @@
 ---
 name: frontend-module-playbook
-description: Design, implement, review, document, and organize React or TypeScript page modules with stable boundaries across page, view-model, transformer, service, and repository layers.
-license: Proprietary. See repository README and documentation for usage terms.
+description: Design, implement, review, comment on, document, and organize React or TypeScript page modules with stable boundaries across page, view-model, transformer, service, and repository layers.
+license: MIT
 metadata:
   author: wuxinbo
   distribution: public-skill-repo
-  version: "0.1.1"
+  version: "0.2.0"
 ---
 
 # Frontend Module Playbook
@@ -80,4 +80,7 @@ If product rules are still unclear, use the smallest safe fallback instead of in
 - `/frontend-module-playbook 为一个新的报表页设计模块目录和职责边界`
 - `/frontend-module-playbook 这个页面的导出逻辑应该落在组件还是 view-model`
 - `/frontend-module-playbook review 这个 React 模块改动有没有流程回归风险`
+- `/frontend-module-playbook 给这个页面补职责注释并统一纯逻辑文件的 region 标题`
+- `/frontend-module-playbook 整理这个模块的实现说明、差异点和待确认项`
+- `/frontend-module-playbook 为这次改动建议一条提交信息，并判断应使用哪种提交类型`
 - `/frontend-module-playbook 这个页面的辅助逻辑应该拆到 helpers 还是继续留在主 hook`

@@ -1,6 +1,8 @@
 # Frontend Module Playbook
 
-一套面向 React / TypeScript 页面模块的可迁移协作规范，已按 Agent Skill 形式组织，可用于模块设计、实现、评审、注释、文档整理和代码组织约束沉淀。
+一套面向 React / TypeScript 页面模块的可迁移协作规范 Skill，已按 Agent Skill 形式组织，覆盖架构、实现、评审、注释、提交、文档整理和代码组织约束。
+
+开源许可：MIT。详见仓库根目录 `LICENSE`。
 
 安装方式：把 `skills/frontend-module-playbook/` 复制到目标仓库的兼容 skill 目录中，或在公开仓库场景下按你的 skills 工具链使用仓库源地址安装。
 
@@ -85,6 +87,7 @@ npx skills add https://github.com/SymbolWu/frontend-module-playbook --skill fron
 - 判断某段逻辑应该落在组件、view-model、transformer 还是 service
 - 评审一个模块改动是否存在流程回归、状态来源冲突或降级路径缺失
 - 给存量页面补注释、实现说明或技术确认清单
+- 为当前改动建议提交信息或判断提交类型
 - 判断页面辅助逻辑应拆到 helpers、components 还是继续留在入口文件
 
 典型调用示例：
@@ -92,6 +95,9 @@ npx skills add https://github.com/SymbolWu/frontend-module-playbook --skill fron
 - `/frontend-module-playbook 为一个新的报表页设计模块目录和职责边界`
 - `/frontend-module-playbook 这个页面的导出逻辑应该落在组件还是 view-model`
 - `/frontend-module-playbook review 这个 React 模块改动有没有流程回归风险`
+- `/frontend-module-playbook 给这个页面补职责注释并统一纯逻辑文件的 region 标题`
+- `/frontend-module-playbook 整理这个模块的实现说明、差异点和待确认项`
+- `/frontend-module-playbook 为这次改动建议一条提交信息，并判断应使用哪种提交类型`
 - `/frontend-module-playbook 这个页面的辅助逻辑应该拆到 helpers 还是继续留在主 hook`
 
 ## 仓库结构
@@ -140,6 +146,12 @@ frontend-module-playbook/
 
 ## 版本
 
-当前版本：`0.1.1`
+当前版本：`0.2.0`
 
 当前版本说明见 `CHANGELOG.md`。
+
+## 许可
+
+本仓库当前采用 MIT License。
+
+你可以在保留原许可文本的前提下复制、修改、分发和复用这套 skill 内容。具体条款见仓库根目录 `LICENSE`。

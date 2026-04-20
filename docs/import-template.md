@@ -32,7 +32,7 @@ Use it when you need to:
 - design or refactor a page module
 - decide where logic belongs across component, view-model, transformer, service, and repository
 - review module changes for behavior risk
-- organize comment, documentation, commit, or integration-debug work
+- organize comments, documentation, commit preparation, or code-organization work
 
 Start from:
 
@@ -46,6 +46,18 @@ Start from:
 1. 在模板仓库中加入 `.github/skills/frontend-module-playbook/`
 2. 在模板 README 中补一段“本项目使用 frontend-module-playbook 作为模块协作规范”
 3. 如果模板还需要 always-on 规则，再由模板仓库自己补 instruction 文件
+
+## 接入后需要确认的项目事实
+
+把 skill 复制进目标仓库后，建议先确认以下事实，再决定哪些规则可以直接继承、哪些需要本地化适配：
+
+- 路由入口和页面挂载方式
+- 页面状态管理方式
+- 请求层命名和目录习惯
+- 样式方案与样式文件组织方式
+- 项目级共享目录的命名，例如 `utils/`、`shared/`、`common/`
+- 错误上报和异常兜底方式
+- 当前项目的最小验证或测试基线
 
 ## 复制后的最小检查
 
