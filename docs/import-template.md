@@ -8,16 +8,35 @@
 
 推荐优先使用 `skills` CLI 做接入，再把手动复制作为 fallback。
 
-已验证的项目级安装示例：
-
-```bash
-npx -y skills add SymbolWu/frontend-module-playbook --skill frontend-module-playbook --agent claude-code -y
-```
-
-如果你需要先确认仓库里有哪些 skill，可先执行：
+先做一个通用检查：
 
 ```bash
 npx -y skills add SymbolWu/frontend-module-playbook -l
+```
+
+如果一个项目可能同时被多个 agent 使用，推荐优先使用最通用的项目级安装方式，不指定 `--agent`：
+
+```bash
+npx -y skills add SymbolWu/frontend-module-playbook --skill frontend-module-playbook -y
+```
+
+如果你需要显式控制目标工具，再使用已验证的主流项目级安装示例：
+
+```bash
+# Claude Code
+npx -y skills add SymbolWu/frontend-module-playbook --skill frontend-module-playbook --agent claude-code -y
+
+# GitHub Copilot
+npx -y skills add SymbolWu/frontend-module-playbook --skill frontend-module-playbook --agent github-copilot -y
+
+# Cursor
+npx -y skills add SymbolWu/frontend-module-playbook --skill frontend-module-playbook --agent cursor -y
+
+# Codex
+npx -y skills add SymbolWu/frontend-module-playbook --skill frontend-module-playbook --agent codex -y
+
+# Windsurf
+npx -y skills add SymbolWu/frontend-module-playbook --skill frontend-module-playbook --agent windsurf -y
 ```
 
 如果不走 CLI，再把当前仓库中的 `skills/frontend-module-playbook/` 复制到目标仓库的对应目录中。常见目标位置：
@@ -25,8 +44,20 @@ npx -y skills add SymbolWu/frontend-module-playbook -l
 - `.github/skills/frontend-module-playbook/`
 - `.agents/skills/frontend-module-playbook/`
 - `.claude/skills/frontend-module-playbook/`
+- `.windsurf/skills/frontend-module-playbook/`
 
 如果是手动复制，且主要面向 GitHub Copilot / VS Code，推荐优先使用 `.github/skills/`。
+
+补充说明：
+
+- `skills` CLI 的项目级安装目录由它自身的 agent target 决定。
+- 不指定 `--agent` 时，CLI 会根据当前环境已检测到的 agent 做项目级安装；这通常是多 agent 项目的最通用方式。
+- 如果需要一次指定多个 agent，可以在同一条命令里写多个值，例如 `--agent claude-code github-copilot cursor`。
+- `claude-code` 通常落到 `.claude/skills/`。
+- `github-copilot`、`cursor`、`codex` 这类 target 在 CLI 下会共用 `.agents/skills/` 一类项目目录。
+- `windsurf` 使用自己的项目目录。
+- 对多 agent 项目，优先让 `skills` CLI 统一管理，不建议手动复制多份 skill 目录。
+- 手动复制时，仍然应优先遵循目标工具自己的兼容目录约定。
 
 ## 存量项目接入说明模板
 
@@ -58,7 +89,7 @@ Start from:
 ```md
 Install with:
 
-`npx -y skills add SymbolWu/frontend-module-playbook --skill frontend-module-playbook --agent claude-code -y`
+`npx -y skills add SymbolWu/frontend-module-playbook --skill frontend-module-playbook --agent <your-agent> -y`
 ```
 
 ## 新项目模板引入

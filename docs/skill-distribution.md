@@ -30,17 +30,47 @@
 
 推荐优先使用 `skills` CLI 做接入，因为现在已经可以稳定识别并安装本仓库中的 skill。
 
-已验证的项目级安装示例：
-
-```bash
-npx -y skills add SymbolWu/frontend-module-playbook --skill frontend-module-playbook --agent claude-code -y
-```
-
-如果需要先列出仓库里可安装的 skill：
+先做一个通用检查：
 
 ```bash
 npx -y skills add SymbolWu/frontend-module-playbook -l
 ```
+
+如果一个项目会被多个 agent 共用，推荐优先使用最通用的项目级安装方式，不指定 `--agent`：
+
+```bash
+npx -y skills add SymbolWu/frontend-module-playbook --skill frontend-module-playbook -y
+```
+
+如果你需要显式控制目标工具，再使用已验证的主流项目级安装示例：
+
+```bash
+# Claude Code
+npx -y skills add SymbolWu/frontend-module-playbook --skill frontend-module-playbook --agent claude-code -y
+
+# GitHub Copilot
+npx -y skills add SymbolWu/frontend-module-playbook --skill frontend-module-playbook --agent github-copilot -y
+
+# Cursor
+npx -y skills add SymbolWu/frontend-module-playbook --skill frontend-module-playbook --agent cursor -y
+
+# Codex
+npx -y skills add SymbolWu/frontend-module-playbook --skill frontend-module-playbook --agent codex -y
+
+# Windsurf
+npx -y skills add SymbolWu/frontend-module-playbook --skill frontend-module-playbook --agent windsurf -y
+```
+
+补充说明：
+
+- `skills` CLI 的项目级安装目录取决于 agent target 本身。
+- 不指定 `--agent` 时，CLI 会根据当前环境已检测到的 agent 做项目级安装；这通常是多 agent 项目的最通用方式。
+- 如果需要一次指定多个 agent，可以在同一条命令里写多个值，例如 `--agent claude-code github-copilot cursor`。
+- `claude-code` 使用 `.claude/skills/`。
+- `github-copilot`、`cursor`、`codex` 这类 target 在 CLI 下会共享 `.agents/skills/` 一类项目目录。
+- `windsurf` 使用自己的项目目录。
+- 因此，CLI 安装路径和手动复制时的推荐目录不一定完全一致。
+- 对多 agent 项目，优先让 CLI 统一管理，而不是手动维护多份复制目录。
 
 如果不走 CLI，再退回到“从本仓库复制 skill 目录到目标仓库”的方式，因为这仍然最直接、最少依赖：
 
