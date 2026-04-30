@@ -50,7 +50,7 @@
 
 ### 2. 查看规则正文
 
-- `skills/frontend-module-playbook/references/module-architecture.md`
+- `skills/frontend-module-playbook/references/architecture.md`
 - `skills/frontend-module-playbook/references/implementation-workflow.md`
 - `skills/frontend-module-playbook/references/comment-workflow.md`
 - `skills/frontend-module-playbook/references/review-workflow.md`

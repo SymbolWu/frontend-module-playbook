@@ -34,7 +34,7 @@ If product rules are still unclear, use the smallest safe fallback instead of in
 ## Working Procedure
 
 1. Classify the task before editing anything.
-   - For module structure and boundaries, start with [module architecture](references/module-architecture.md).
+   - For architecture, directory planning, and layer boundaries, start with [architecture](references/architecture.md).
    - For code changes, start with [implementation workflow](references/implementation-workflow.md).
    - For comments, use [comment workflow](references/comment-workflow.md).
    - For reviews, use [review workflow](references/review-workflow.md).
@@ -62,7 +62,7 @@ If product rules are still unclear, use the smallest safe fallback instead of in
 
 ## Reference Files
 
-- [module architecture](references/module-architecture.md)
+- [architecture](references/architecture.md)
 - [implementation workflow](references/implementation-workflow.md)
 - [comment workflow](references/comment-workflow.md)
 - [review workflow](references/review-workflow.md)

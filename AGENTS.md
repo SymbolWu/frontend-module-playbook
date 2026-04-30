@@ -6,7 +6,7 @@
 
 ## 任务入口
 
-- 如果你要设计一个新的页面级业务模块，优先看 `skills/frontend-module-playbook/references/module-architecture.md`。
+- 如果你要做前端架构或目录规划，优先看 `skills/frontend-module-playbook/references/architecture.md`。
 - 如果你要开始实际改代码，优先看 `skills/frontend-module-playbook/references/implementation-workflow.md`。
 - 如果你要补注释或统一注释风格，优先看 `skills/frontend-module-playbook/references/comment-workflow.md`。
 - 如果你要做代码评审，优先看 `skills/frontend-module-playbook/references/review-workflow.md`。
@@ -22,5 +22,5 @@
 ## 使用原则
 
 - 优先把这里当成“规则母本”，再按目标项目做适配，而不是原样硬拷贝到所有仓库。
-- 新增规则文档时，优先判断它属于模块架构、实现流程、注释、评审、提交或文档整理中的哪一类，并放入 `skills/frontend-module-playbook/references/`。
+- 新增规则文档时，优先判断它属于架构、实现流程、注释、评审、提交或文档整理中的哪一类，并放入 `skills/frontend-module-playbook/references/`。
 - `AGENTS.md` 只保留入口说明，不重复展开各份文档细则。
